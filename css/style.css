@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  :root {
+    --purple: #9933ff;
+    --pink: #cc33ff;
+
+  }
+
+  body {
+    font-family: Helvetica, Arial, sans-serif;
+  }
+
+  header {
+    padding: 20px 30px;
+    background-color: var(--purple);
+  }
+
+  header h1 {
+      font-size: 33px;
+  }
+
+  .container {
+      margin: 75px 25px;
+  }
+
+  .btn {
+      border-radius: 20%;
+      margin: 20px 20px 20px 50px;
+      width: 25%;
+      height: 25%;
+  }
