@@ -41,8 +41,9 @@ var qa = document.getElementById("start");
 
 
 var buttonclick = document.querySelector("#start");
+
  var startGame = function() {
-questionCycle();
+questionCycle(questionIndex);
 setTime();
 
 
@@ -65,10 +66,6 @@ function questionCycle (questionIndex) {
     for (var i = 0; i < questions.length; i++) {
         var Q = questions[questionIndex].question;
         var A = questions[questionIndex].selections;
-
-
-
-
     };
 
 

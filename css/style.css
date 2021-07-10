@@ -17,6 +17,7 @@
   header {
     padding: 20px 30px;
     background-color: var(--purple);
+    color: white;
   }
 
   header h1 {
@@ -25,6 +26,10 @@
 
   .container {
       margin: 75px 25px;
+  }
+
+  .container h1 {
+    line-height: 3;
   }
 
   .btn {
