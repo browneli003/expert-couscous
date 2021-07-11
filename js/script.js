@@ -69,6 +69,7 @@ times();
 // Renders questions and choices to page: 
 function questionCycle(questionIndex) {
     // Clears existing data 
+    questionsDiv.innerHTML = "";
     ulList.innerHTML = "";
     // For loops to loop through all info in array
     for (var i = 0; i < questions.length; i++) {
