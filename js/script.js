@@ -37,45 +37,94 @@ var questions =
 var timer = 75;
 var score = 0;
 var index = 0;
+var penalty = 10;
 var qa = document.getElementById("start");
+var questionsDiv = document.querySelector("#questions");
+var ulList = document.createElement("ul");
 
 
-var buttonclick = document.querySelector("#start");
+//window.onload = times();
 
  var startGame = function() {
-questionCycle(questionIndex);
-setTime();
+questionCycle();
+times();
 
 
  };
 
 
- function setTime() {
-document.getElementById("timer").innerHTML = timer + "sec left";
-timer--;
-if (timer == -1) {
-    //clearInterval("quiz");
-   
-    };
-
+ function times(){
+    var sec = 75;
+    var timer = setInterval(function(){
+        document.getElementById('safeTimerDisplay').innerHTML='00:'+sec;
+        sec--;
+        if (sec < 0) {
+            clearInterval(timer);
+        }
+    }, 1000);
 };
 
-function questionCycle (questionIndex) {
 
 
+// Renders questions and choices to page: 
+function questionCycle(questionIndex) {
+    // Clears existing data 
+    ulList.innerHTML = "";
+    // For loops to loop through all info in array
     for (var i = 0; i < questions.length; i++) {
-        var Q = questions[questionIndex].question;
-        var A = questions[questionIndex].selections;
-    };
-
-
-    
+        // Appends question title only
+        var userQuestion = questions[questionIndex].question;
+        var userChoices = questions[questionIndex].selections;
+        questionsDiv.textContent = userQuestion;
+    }
+    // New for each for question choices
+    userChoices.forEach(function (newItem) {
+        var listItem = document.createElement("li");
+        listItem.textContent = newItem;
+        questionsDiv.appendChild(ulList);
+        ulList.appendChild(listItem);
+        listItem.addEventListener("click", (compare));
+    })
 };
 
 
+
+function compare(event) {
+    var element = event.target;
+
+    if (element.matches("li")) {
+
+        var createDiv = document.createElement("div");
+        createDiv.setAttribute("id", "createDiv");
+        // Correct condition 
+        if (element.textContent == questions[index].answer) {
+            score++;
+            createDiv.textContent = "Correct! The answer is:  " + questions[index].answer;
+            // Correct condition 
+        } else {
+            // Will deduct -5 seconds off secondsLeft for wrong answers
+            timer = timer - penalty;
+            createDiv.textContent = "Wrong! The correct answer is:  " + questions[index].answer;
+        }
+
+    }
+    // Question Index determines number question user is on
+    index++;
+
+    if (index >= questions.length) {
+        // All done will append last page with user stats
+        //Finish Quiz()
+        createDiv.textContent = "End of quiz!" + " " + "You got  " + score + "/" + questions.length + " Correct!";
+    } else {
+        render(questionIndex);
+    }
+    questionsDiv.appendChild(createDiv);
+
+};
+
     
 
 
 
 
-buttonclick.addEventListener("click", startGame);
+qa.addEventListener("click", startGame);
