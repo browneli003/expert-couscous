@@ -32,6 +32,11 @@
     line-height: 3;
   }
 
+  .choices {
+justify-content: space-around;
+
+  }
+
   .btn {
       color: white;
       border-radius: 20%;
@@ -39,4 +44,6 @@
       width: 150px;
       height: 60px;
       background-color: rgb(92, 5, 104);
+      justify-content: space-around;
   }
+

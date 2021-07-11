@@ -11,35 +11,35 @@
     <header><h1>Code Quiz</h1></header>
     
 
-<div class="container">
+<div id="nav">
+
+    <div class="left">
+        <a onclick="getScore()" href="#"><h4>View Highscore</h4></a>
+    </div>
+     <div class="right">
+        <h4>Time: <span id="timeLeft">0</span></h4>
+    </div>
+
+</div>
+
+<div class="container" id="quiz">
+    <div id="quizBody" class="bodyQuiz">
     <h1>Code Challenge Quiz</h1>
     <p>
         Try answering the following code related questions within the following time limit.
         Keep in mind that incorrect answers will penalize score/time by ten seconds!
     </p>
-<button type="button" class="btn" id="start">Start!</button>
-<div id="timeLeft">Time Left: 
-    
-</div>
+<button type="button" class="btn" id="start" button onclick="start()">Start!</button>
+
     <div class="questions">
         <div class="answers">
-
-
-
-
-
-
-
-
-
-
         </div>
 
     </div>
 
-</div>
 
-
+    </div>
+</div>   
 
 
 <script src="./js/script.js"></script>

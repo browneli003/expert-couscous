@@ -35,9 +35,6 @@ var questions =
 
 //window.onload = times();
 
- 
-
-
 
 // Renders questions and choices to page: 
 function questionCycle(questionIndex) {
@@ -222,8 +219,3 @@ function next() {
 
     document.getElementById("quizBody").innerHTML = quizContent;
 }
-
-
-var pressButton = document.querySelector("#start");
-
-pressButton.addEventListener("click", start);
