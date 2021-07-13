@@ -206,7 +206,7 @@ function next() {
     var quizContent = "<h2>" + questions[currentQuestion].title + "</h2>"
 
     for (var buttonLoop = 0; buttonLoop < questions[currentQuestion].choices.length; buttonLoop++) {
-        var buttonCode = "<button onclick=\"[ANS]\">[CHOICE]</button>"; 
+        var buttonCode = "<button class= \"btn\" onclick=\"[ANS]\">[CHOICE]</button>"; 
         buttonCode = buttonCode.replace("[CHOICE]", questions[currentQuestion].choices[buttonLoop]);
         if (questions[currentQuestion].choices[buttonLoop] == questions[currentQuestion].answer) {
             buttonCode = buttonCode.replace("[ANS]", "correct()");
